@@ -26,7 +26,7 @@ open class Animal{
 
 
     override fun toString(): String {
-        return "$nombre,$sexo, $edad, sociable:$sociable, apadrinado:$apadrinado)"
+        return "$nombre, $sexo, edad: $edad, sociable:$sociable, apadrinado:$apadrinado)"
     }
 
     fun checkCantidadSolicitudes():Int{

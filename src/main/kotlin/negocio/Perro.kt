@@ -28,7 +28,7 @@ class Perro:Animal {
 
 
     override fun toString(): String {
-        return "${super.toString()}, leishmani:$leishmani,'$raza',$peso, ppp:$ppp"
+        return "${super.toString()}, leishmani:$leishmani,'$raza', peso:$peso, ppp:$ppp"
     }
 
 
