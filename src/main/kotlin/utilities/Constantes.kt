@@ -13,4 +13,5 @@ object Constantes {
     val PESO_PERRO_PEQUEÑO = 0..15
     val PESO_PERRO_MEDIANO = 16..25
     val PESO_PERRO_GRANDE = 26..9999
+    const val LIMITE_ADOPCIONES = 20
 }

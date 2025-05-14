@@ -11,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.SolicitudController">
    <children>
-      <ComboBox fx:id="comboAnimales" layoutX="82.0" layoutY="74.0" onAction="#onSelectedAnimal" prefHeight="25.0" prefWidth="436.0" />
+      <ComboBox fx:id="comboAnimales" layoutX="82.0" layoutY="74.0" prefHeight="25.0" prefWidth="436.0" />
       <Label layoutX="167.0" layoutY="14.0" text="ADOPTAR/ACOGER">
          <font>
             <Font name="System Bold" size="29.0" />
@@ -23,18 +23,12 @@
             <ToggleGroup fx:id="adoptar" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="radioAcoger" layoutX="460.0" layoutY="271.0" mnemonicParsing="false" onAction="#onSelectedAcoger" text="Acoger" toggleGroup="$adoptar" />
+      <RadioButton fx:id="radioAcoger" layoutX="460.0" layoutY="271.0" mnemonicParsing="false" text="Acoger" toggleGroup="$adoptar" />
       <Label layoutX="14.0" layoutY="210.0" text="EMAIL">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <RadioButton fx:id="radioGatos" layoutX="82.0" layoutY="125.0" mnemonicParsing="false" onAction="#onSelectedGatos" selected="true" text="Gatos">
-         <toggleGroup>
-            <ToggleGroup fx:id="animales" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="radioPerros" layoutX="167.0" layoutY="125.0" mnemonicParsing="false" onAction="#onSelectedPerros" text="Perros" toggleGroup="$animales" />
       <Button fx:id="btnEnviar" layoutX="394.0" layoutY="322.0" mnemonicParsing="false" onAction="#onPressedEnviar" prefHeight="30.0" prefWidth="117.0" text="Enviar" />
    </children>
 </Pane>

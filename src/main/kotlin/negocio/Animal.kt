@@ -34,6 +34,10 @@ abstract class Animal{
         return solicitudes.size
     }
 
+
+    fun returnName():String{
+        return nombre
+    }
    abstract fun calculoGastosAnual():Int
     /**
      * De todos los animales interesará conocer su sexo (macho o hembra),

@@ -47,7 +47,7 @@ class Perro:Animal {
 
         return gastos
     }
-    fun calcularCantidadPienso():Double{
+    fun calcularCantidadPienso(perro: Perro):Double{
         var edadEnMeses:Int = edad*12
         var pienso=0.0
         if (edadEnMeses>18){

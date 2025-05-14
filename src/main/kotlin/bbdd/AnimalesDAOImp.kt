@@ -50,7 +50,7 @@ object AnimalesDAOImp : AnimalesDAO {
                 if (readyStatement.getInt("PPP") == 1) {
                     ppp = true
                 }
-                val peso = readyStatement.getDouble("Tamaño")
+                val peso = readyStatement.getInt("Tamaño")
                 val raza = readyStatement.getString("Raza")
                 animales.add(
                     Perro(

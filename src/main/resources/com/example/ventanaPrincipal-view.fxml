@@ -16,5 +16,7 @@
       <TextArea fx:id="txtAnimales" editable="false" layoutX="40.0" layoutY="179.0" prefHeight="200.0" prefWidth="419.0" />
       <Button fx:id="btnSelectAnimales" layoutX="352.0" layoutY="429.0" mnemonicParsing="false" onAction="#onPressedVerAnimales" prefHeight="24.0" prefWidth="107.0" text="Ver animales" />
       <Button layoutX="46.0" layoutY="429.0" mnemonicParsing="false" onAction="#onPressedAdoptar" prefHeight="25.0" prefWidth="107.0" text="Adoptar/Acoger" />
+      <Button layoutX="196.0" layoutY="429.0" mnemonicParsing="false" onAction="#onPressedCalculoCostes" prefHeight="25.0" prefWidth="107.0" text="Coste anual" />
+      <Button layoutX="40.0" layoutY="138.0" mnemonicParsing="false" onAction="#onPressedPienso" prefHeight="25.0" prefWidth="107.0" text="Total de pienso" />
    </children>
 </Pane>

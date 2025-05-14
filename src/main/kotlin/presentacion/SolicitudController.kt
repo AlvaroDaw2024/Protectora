@@ -1,27 +1,22 @@
 package presentacion
 
+import bbdd.AnimalesDAOImp
+import bbdd.SolicitudImplFichero
+import javafx.collections.FXCollections
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
-import javafx.scene.control.Button
 import javafx.scene.control.ComboBox
 import javafx.scene.control.RadioButton
 import javafx.scene.control.TextField
-import javafx.scene.control.ToggleGroup
+import negocio.Animal
+import utilities.Constantes
+import utilities.TipoSolicitud
 
 class SolicitudController {
 
 
     @FXML
-    private lateinit var adoptar: ToggleGroup
-
-    @FXML
-    private lateinit var animales: ToggleGroup
-
-    @FXML
-    private lateinit var btnEnviar: Button
-
-    @FXML
-    private lateinit var comboAnimales: ComboBox<Any>
+    private lateinit var comboAnimales: ComboBox<Animal>
 
     @FXML
     private lateinit var radioAcoger: RadioButton
@@ -30,37 +25,41 @@ class SolicitudController {
     private lateinit var radioAdoptar: RadioButton
 
     @FXML
-    private lateinit var radioGatos: RadioButton
-
-    @FXML
-    private lateinit var radioPerros: RadioButton
-
-    @FXML
     private lateinit var txtEmail: TextField
 
     @FXML
     fun onPressedEnviar(event: ActionEvent) {
-
+        var nombre = comboAnimales.selectionModel.selectedItem.returnName()
+        var email = txtEmail.text
+        var adopcion:TipoSolicitud = TipoSolicitud.ADOPCION
+        if (radioAcoger.isSelected){
+            adopcion = TipoSolicitud.ACOGIDA
+        }
+        if (nombre.isNotBlank() && email.isNotBlank()){
+            SolicitudImplFichero.solicitudAnimal(nombre,email,adopcion)
+            txtEmail.clear()
+            comboAnimales.selectionModel.clearSelection()
+            cargarAnimales()
+        }else{
+            println("Faltan datos")// aqui iria una ventana pero pasando que tardo 10m de mas
+        }
     }
 
     @FXML
-    fun onSelectedAcoger(event: ActionEvent) {
-
+    fun initialize (){
+        cargarAnimales()
     }
 
-    @FXML
-    fun onSelectedAnimal(event: ActionEvent) {
-
-    }
-
-    @FXML
-    fun onSelectedGatos(event: ActionEvent) {
-
-    }
-
-    @FXML
-    fun onSelectedPerros(event: ActionEvent) {
-
+    fun cargarAnimales(){
+        var animales = AnimalesDAOImp.getAllAnimales()
+        var animalesFiltered = mutableListOf<Animal>()
+        animales.forEach{
+           if (it.checkCantidadSolicitudes() < Constantes.LIMITE_ADOPCIONES){
+               animalesFiltered.add(it)
+           }
+        }
+        val lista = FXCollections.observableArrayList(animalesFiltered)
+        comboAnimales.items = lista
     }
 
 }
