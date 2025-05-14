@@ -1,5 +1,6 @@
 package negocio
 
+import utilities.Constantes
 import utilities.Sexo
 
 class Gato: Animal {
@@ -27,5 +28,15 @@ class Gato: Animal {
             esterilizado = this.esterilizado
         }
         return esterilizado
+    }
+
+    override fun calculoGastosAnual(): Int {
+        var gastos = 0
+        if (!apadrinado){
+            if (!checkHembraEsterilizada()){
+                gastos+=Constantes.COSTE_CONTROL_CELO_GATA_MENSUAL*12
+            }
+        }
+        return gastos
     }
 }

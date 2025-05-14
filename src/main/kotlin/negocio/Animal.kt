@@ -1,8 +1,9 @@
 package negocio
 
+import utilities.Constantes
 import utilities.Sexo
 
-open class Animal{
+abstract class Animal{
     var nombre: String=""
     var sexo: Sexo = Sexo.MACHO
     var sociable:Boolean=false
@@ -32,6 +33,8 @@ open class Animal{
     fun checkCantidadSolicitudes():Int{
         return solicitudes.size
     }
+
+   abstract fun calculoGastosAnual():Int
     /**
      * De todos los animales interesará conocer su sexo (macho o hembra),
      * edad (en años), si son sociables con las personas y si están apadrinados.
